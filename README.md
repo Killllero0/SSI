@@ -17,11 +17,11 @@
 
 ## Документация на железо
 
-[ESP-32-WROOM](sources/esp32-wroom_datasheet.pdf)
-[ESP Pinout](sources/ESP-32-Dev-Kit-C-V2-Pinout.png)
-[DS3231](sources/04-DS3231SN-T-R.pdf)
-[ULN2003A](sources/ULN200xA.pdf)
-[28BYJ-48](sources/28BYJ-48.pdf)
+- [ESP-32-WROOM](sources/esp32-wroom_datasheet.pdf)
+- [ESP Pinout](sources/ESP-32-Dev-Kit-C-V2-Pinout.png)
+- [DS3231](sources/04-DS3231SN-T-R.pdf)
+- [ULN2003A](sources/ULN200xA.pdf)
+- [28BYJ-48](sources/28BYJ-48.pdf)
 
 ## Документация на ПО
 
