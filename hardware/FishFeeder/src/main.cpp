@@ -55,6 +55,13 @@ void setup() {
 
 void loop() {
   client.loop();
+  if (!client.connected())
+  {
+    #if DEBUG
+    Serial.println("Клиент потерял связь с сервером.");
+    #endif
+    mqttconnect();
+  }
   stepper.tick();
 }
 
@@ -72,5 +79,32 @@ void callback(char* topic, byte* payload, unsigned int length)
   }
   Serial.println("");
   #endif
-  stepper.setTargetDeg(360);
+  stepper.setTargetDeg(DegreesRevolution, RELATIVE);
+}
+
+
+void mqttconnect()
+{
+  while (!client.connected())
+  {
+    #if DEBUG
+    Serial.print("Подключаемя к MQTT серверу");
+    #endif
+
+    if (client.connect(MQTT_ID, MQTT_USER, MQTT_PASSWORD))
+    {
+      #if DEBUG
+      Serial.println("Успешное подключение к MQTT серверу");
+      #endif
+      client.subscribe(MQTT_READ_TOPIC);
+    }
+    else
+    {
+      #if DEBUG
+      Serial.println("Подключение не удалось");
+      Serial.println("Новая попытка через 5 секунд");
+      #endif
+      delay(5000);
+    }
+  }
 }

@@ -22,11 +22,11 @@ const char* MQTT_PASSWORD = "mqtt_password";
 // Топик для чтения
 const char* MQTT_READ_TOPIC = "mqtt_topic";
 
-
+const int DegreesRevolution = 720;
 
 // Продвинутые настройки
 // Включение вывода отладочной информации
-#define DEBUG false
+#define DEBUG true
 
 // Пины мотора
 const int IN1 = 19;
@@ -38,3 +38,4 @@ const int IN4 = 17;
 const int stepsPerRevolution = 2048;
 
 void callback(char* topic, byte* payload, unsigned int length);
+void mqttconnect();
